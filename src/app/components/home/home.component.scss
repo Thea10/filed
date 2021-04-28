@@ -1,0 +1,31 @@
+@import "../../../assets/scss/variables.scss";
+
+.home {
+  margin: 2rem auto;
+  text-align: center;
+  color: $footer_bg;
+  transition: all 0.4s ease-in-out;
+}
+
+h4 {
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.btn-start {
+  height: 40px;
+  width: 157px;
+  margin: auto;
+  border-radius: 4px;
+  background: $file_red;
+  color: $input_white;
+  transition: all 0.4s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: $input_white;
+    color: $file_red;
+    border: 1px solid $file_red;
+    box-shadow: none;
+  }
+}

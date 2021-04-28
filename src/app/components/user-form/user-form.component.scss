@@ -1,0 +1,129 @@
+@import "../../../assets/scss/variables.scss";
+
+.user-form {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  color: black;
+  overflow-x: hidden;
+
+  .desc-text {
+      position: relative;
+    h1 {
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 1rem;
+      span {
+        color: $light_blue;
+      }
+    }
+    h4 {
+      font-size: 24px;
+    }
+
+    @include lg-min {
+      h1 {
+        font-size: 44px;
+      }
+
+      h4 {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .blue-ellipse, .red-grid{
+      position: absolute;
+      right: 0;
+      right: -25%;
+      top: -10%;
+  }
+
+  form {
+      position: relative;
+      text-align: center;
+    background: $form_bg;
+    border-radius: 30px;
+    box-shadow: 0px 4px 20px #00000029;
+    transition: all 0.4s ease-in-out;
+
+    h3 {
+      font-size: 34px;
+      line-height: 40px;
+      font-weight: 600;
+    }
+
+    ::placeholder {
+      color: black;
+    }
+
+    .form-row {
+      .form-group {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .form-control {
+          background: transparent;
+          border: 1px solid #dedede;
+          border-radius: 10px;
+          height: 48px;
+          font-size: 16px;
+          + label {
+              position: absolute;
+              margin-left: 15px;
+              margin-top: 0.1rem;
+              transition: all 0.2s;
+
+            transform: translateY(12px);
+            transform-origin: 0 100%;
+            transform-origin: 0 100%;
+
+            &:hover {
+              transform: translateY(-14px) scale(0.8);
+              color: #707070;
+              background: $form_bg;
+            }
+          }
+
+          &:hover,
+          &:focus {
+            border: 2px solid #008cc9;
+            box-shadow: none;
+            + label {
+              transform: translateY(-14px) scale(0.8);
+              color: #707070;
+              background: $form_bg;
+            }
+          }
+
+         
+        }
+        @include lg-min {
+            &.small-width {
+                width: 49%;
+            }
+          }
+      }
+    }
+
+    .btn-create{
+        height: 40px;
+        width: 100%;
+        margin: auto;
+        border-radius: 4px;
+        background: $file_red;
+        color: $input_white;
+        transition: all 0.4s ease-in-out;
+      
+        &:hover,
+        &:focus {
+          background: $input_white;
+          color: $file_red;
+          border: 1px solid $file_red;
+          box-shadow: none;
+        }
+    }
+  }
+}

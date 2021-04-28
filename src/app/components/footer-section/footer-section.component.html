@@ -1,0 +1,25 @@
+<div class="testimonials row p-3 p-lg-5 mx-0 justify-content-between">
+  <div
+    *ngFor="let testimonial of testimonials"
+    class="testimony col-md-4 col-lg-3 p-0 mb-4 mb-lg-0"
+  >
+    <h5 class="font-weight-bold mb-4">
+      <img src="assets/images/Icon material-format-quote.svg" alt="quote" />
+      <span class="ml-5"> "{{ testimonial?.head }}" </span>
+    </h5>
+
+    <h6 class="mb-3 w-75">"{{ testimonial.body }}"</h6>
+    <div class="details">
+      <div class="img mr-4">{{ testimonial.author[0] }}</div>
+      <div>
+        <h6 class="font-weight-bold">{{ testimonial.author }}</h6>
+        <h6>{{ testimonial.role }}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer row mx-0 justify-content-between align-items-center  p-3 px-lg-5">
+<span>Copyright &copy; {{date}}. All Rights Reserved </span>
+ <ul > <li>home</li> <li>features</li> <li>terms</li> <li>privacy</li> <li>contact us</li>  </ul>
+ <div class="socials"> <i class="fa fa-facebook"></i> <i class="fa fa-instagram"></i> <i class="fa fa-twitter"></i> </div>
+</footer>

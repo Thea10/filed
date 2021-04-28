@@ -1,0 +1,35 @@
+@import "../../../assets/scss/variables.scss";
+
+.offer {
+  position: relative;
+  text-align: center;
+  background: url("../../../assets/images/benefits-bg.svg");
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    font-size: 28px;
+    line-height: 35px;
+    color: $light_blue;
+  }
+
+  .floating-icons{
+      position: absolute;
+      right: 5%;
+      img{
+          position: inherit;
+          &:first-child{
+            bottom: 0;
+          }
+          &:nth-child(2){
+              top: 0;
+          }
+
+          &:last-child{
+              right: 0;
+          }
+      }
+  }
+}
