@@ -29,3 +29,15 @@ h4 {
     box-shadow: none;
   }
 }
+
+.user-card{
+  width: 90%;
+  max-width: 200px;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 2px;
+  background: $footer_bg;
+  color: $input_white;
+  font-size: 14px;
+  line-height: 24px;
+}

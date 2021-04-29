@@ -1,5 +1,28 @@
-<div class="home"> 
-     <h4>Welcome</h4>
-    <button class="btn btn-start" routerLink="create-user">Create User</button>
+<div class="home">
+  <h4>Welcome</h4>
+  <button class="btn btn-start" routerLink="create-user">Create User</button>
 
+  <div *ngIf="usersList.length < 1" class="small text-danger">
+    You have not added any users</div
+  >
+
+  <div class="text-left text-black-50" *ngIf="usersList.length > 0"> Your users </div>
+  <div class="row mx-0 align-items-center" *ngIf="usersList.length > 0">
+      <div class="user-card" *ngFor="let user of usersList">
+        <span>
+            {{user.first_name}}
+        </span>
+        <span>
+            {{user.last_name}}
+        </span>
+        <span>
+            {{user.email}}
+        </span>
+        <span>
+            {{user.phone_number}}
+        </span>
+
+        <span>{{user.monthly_budget}}</span>
+      </div>
+  </div>
 </div>

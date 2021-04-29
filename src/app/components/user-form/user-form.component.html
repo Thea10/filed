@@ -1,7 +1,11 @@
 <div class="user-form p-3 p-lg-5">
   <div class="col-lg-5 p-0">
-    <img src="assets/images/filed-logo-01.png" alt="logo" />
-    <img src="assets/images//blue-ellipse.svg" class="blue-ellipse" alt="logo" />
+    <img routerLink="/" src="assets/images/filed-logo-01.png" alt="logo" />
+    <img
+      src="assets/images//blue-ellipse.svg"
+      class="blue-ellipse"
+      alt="logo"
+    />
     <div class="desc-text my-5">
       <h1>Book a demo today and get two weeks for <span>free.</span> Why?</h1>
 
@@ -14,43 +18,154 @@
     />
   </div>
   <div class="col-11 col-sm-7 col-lg-5 col-xl-4 p-0 m-auto">
-      <img class="red-grid" src="assets/images/red-grid.svg" alt="red grid">
-    <form class="w-100 p-3 p-lg-5">
+    <img class="red-grid" src="assets/images/red-grid.svg" alt="red grid" />
+
+  
+    <form (onSubmit)="$event.preventDefault()" [formGroup]="addUserForm" class="w-100 p-3 p-lg-5">
       <h3>We’ll be in touch to get your trial set up.</h3>
 
       <h6>Fill Out Form</h6>
 
       <div class="form-row justify-content-between">
-        <div class="form-group  small-width p-0">
-          <input type="text" name="" id="" class="form-control" />
+        <div class="form-group small-width p-0">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="form-control"
+            formControlName="first_name"
+            [ngClass]="{
+              error: formSubmitted && FormElements.first_name.errors, filled:  addUserForm.value.first_name
+            }"
+          />
           <label for="firstname">First Name*</label>
+
+          <small
+            *ngIf="formSubmitted && FormElements.first_name.errors"
+            class="text-danger"
+          >
+            <small *ngIf="FormElements.first_name.errors.required">
+              A first name is required</small
+            >
+          </small>
         </div>
-        <div class="form-group  small-width p-0  ">
-          <input type="text" name="" id="" class="form-control" />
+        <div class="form-group small-width p-0">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="form-control"
+            formControlName="last_name"
+            [ngClass]="{ error: formSubmitted && FormElements.last_name.errors, filled: addUserForm.value.last_name}"
+          />
           <label for="lastname">Last Name*</label>
+          <small
+            *ngIf="formSubmitted && FormElements.last_name.errors"
+            class="text-danger"
+          >
+            <small *ngIf="FormElements.last_name.errors.required">
+              A last name is required</small
+            >
+          </small>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group ">
-          <input type="email" name="" id="" class="form-control " />
+        <div class="form-group">
+          <input
+            type="email"
+            name=""
+            id=""
+            class="form-control"
+            formControlName="email"
+            [ngClass]="{ error: formSubmitted && FormElements.email.errors, filled: addUserForm.value.email }"
+          />
           <label for="email">Work Email*</label>
+          <small
+            *ngIf="formSubmitted && FormElements.email.errors"
+            class="text-danger"
+          >
+            <small *ngIf="FormElements.email.errors.required">
+              A work email is required</small
+            >
+            <small *ngIf="FormElements.email.errors.pattern">
+              Please check the email</small
+            >
+          </small>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group ">
-          <input type="text" name="" id="" class="form-control" />
+        <div class="form-group">
+          <input
+            type="number"
+            name=""
+            id=""
+            class="form-control"
+            formControlName="monthly_budget"
+            [ngClass]="{
+              error: formSubmitted && FormElements.monthly_budget.errors, filled:   addUserForm.value.monthly_budget
+            }"
+          />
           <label for="budget">Monthly Advertising Budget *</label>
+          <small
+            *ngIf="formSubmitted && FormElements.monthly_budget.errors"
+            class="text-danger"
+          >
+            <small *ngIf="FormElements.monthly_budget.errors.required">
+              A monthly budget is required</small
+            >
+          </small>
         </div>
       </div>
 
       <div class="form-row">
-        <div class="form-group ">
-          <input type="tel" name="" id="" class="form-control" />
-          <label for="budget">Monthly Advertising Budget *</label>
+        <div class="form-group">
+          <ngx-intl-tel-input
+            class="w-100 form-control p-0"
+            [cssClass]="'custom'"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[
+              SearchCountryField.Iso2,
+              SearchCountryField.Name
+            ]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Nigeria"
+            [maxLength]="11"
+            [tooltipField]="TooltipLabel.Name"
+            [phoneValidation]="true"
+            [separateDialCode]="separateDialCode"
+            name="phone"
+            id="phone"
+            formControlName="phone_number"
+            required
+            [ngClass]="{
+              error: formSubmitted && FormElements.phone_number.errors, filled:   addUserForm.value.phone_number
+            }"
+          >
+          </ngx-intl-tel-input>
+          <label for="phone">Phone Number*</label>
+          <small
+            *ngIf="formSubmitted && FormElements.phone_number.errors"
+            class="text-danger"
+          >
+            <small *ngIf="FormElements.phone_number.errors.required">
+              A phone number is required</small
+            >
+            <small *ngIf="FormElements.phone_number.errors.pattern">
+              Please check the number</small
+            >
+          </small>
         </div>
       </div>
 
-      <button class="btn btn-create">Get Free Trial</button>
+      <button (click)="saveUser()" class="btn btn-create">Save User</button>
+
+      <button routerLink="/" class="btn btn-create"> User List</button>
+
+      <div *ngIf="feedbackText" class="alert alert-success">
+        {{feedbackText}}
+      </div>
     </form>
   </div>
 </div>
