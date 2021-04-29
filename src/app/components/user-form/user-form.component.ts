@@ -62,7 +62,7 @@ export class UserFormComponent implements OnInit {
     this.addUserForm.reset();
     this.formSubmitted = false;
     this.feedbackText =
-      "User created! Click the 'Filed' Button to view your user list";
+      "User created! Click the button below to view your user list";
 
     setTimeout(() => {
       this.feedbackText = null;
