@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <button [disabled]=" !addUserForm.valid" type="submit" (click)="saveUser()" class="btn btn-create">Save User</button>
+      <button  type="submit" (click)="saveUser()" class="btn btn-create">Save User</button>
 
       <div *ngIf="feedbackText" class="alert alert-success">
         {{feedbackText}}

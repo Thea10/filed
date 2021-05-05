@@ -63,7 +63,7 @@ describe("UserFormComponent", () => {
     component.FormElements.phone_number.setValue("");
     element = fixture.debugElement.query(By.css("button")).nativeElement;
     expect(component.addUserForm.valid).toBeFalsy();
-    let attr = element.hasAttribute("disabled");
-    expect(attr).toBeTruthy();
+    // let attr = element.hasAttribute("disabled");
+    // expect(attr).toBeTruthy();
   }));
 });
